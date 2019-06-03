@@ -1,0 +1,7 @@
+schema:
+- schema.graphql
+exec:
+  filename: graphql/generated.go
+resolver:
+  filename: graphql/resolver.go
+  type: Resolver

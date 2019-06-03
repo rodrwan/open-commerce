@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package users;
+
+service Service {
+  rpc Get(GetRequest) returns (GetResponse) {}
+  rpc Select(SelectRequest) returns (SelectResponse) {}
+  rpc Create(CreateRequest) returns (CreateResponse) {}
+  rpc Update(UpdateRequest) returns (UpdateResponse) {}
+  rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}
+
+message User {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  string phone = 5;
+  string dni = 6;
+
+  int64 created_at = 7;
+  int64 updated_at = 8;
+}
+
+message GetRequest {
+  string user_id = 1;
+}
+
+message GetResponse {
+  User data = 1;
+}
+
+message SelectRequest {}
+
+message SelectResponse {
+  repeated User data = 1;
+}
+
+message CreateRequest {
+  User data = 1;
+}
+
+message CreateResponse {
+  User data = 1;
+}
+
+message UpdateRequest {
+  string user_id = 1;
+  User data = 2;
+}
+
+message UpdateResponse {
+  User data = 1;
+}
+
+message DeleteRequest {
+  string user_id = 1;
+}
+
+message DeleteResponse {
+  User data = 1;
+}

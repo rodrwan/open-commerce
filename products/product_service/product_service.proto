@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package products;
+
+service Service {
+  rpc Get(GetRequest) returns (GetResponse) {}
+  rpc Select(SelectRequest) returns (SelectResponse) {}
+  rpc Create(CreateRequest) returns (CreateResponse) {}
+  rpc Update(UpdateRequest) returns (UpdateResponse) {}
+  rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}
+
+message Categories {
+    string id = 1;
+    string value = 2;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string sku = 4;
+  string price = 5;
+  int64 storage = 6;
+  string picture = 7;
+  Categories categoryes = 8;
+
+  int64 created_at = 9;
+  int64 updated_at = 10;
+}
+
+message GetRequest {
+  string product_id = 1;
+}
+
+message GetResponse {
+  Product data = 1;
+}
+
+message SelectRequest {}
+
+message SelectResponse {
+  repeated Product data = 1;
+}
+
+message CreateRequest {
+  Product data = 1;
+}
+
+message CreateResponse {
+  Product data = 1;
+}
+
+message UpdateRequest {
+  string product_id = 1;
+  Product data = 2;
+}
+
+message UpdateResponse {
+  Product data = 1;
+}
+
+message DeleteRequest {
+  string product_id = 1;
+}
+
+message DeleteResponse {
+  Product data = 1;
+}
